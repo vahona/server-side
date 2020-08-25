@@ -4,11 +4,14 @@
   "description": "A series of exercises for getting a JavaScript-based server-side application up and running",
   "main": "index.js",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "nunjucks": "^3.2.2"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
   "scripts": {
-    "serve": "node ./index.js"
+    "serve": "nodemon -e js,njk ./index.js"
   },
   "repository": {
     "type": "git",

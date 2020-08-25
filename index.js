@@ -1,3 +1,4 @@
+const nunjucks = require('nunjucks');
 
 console.log('Greetings from Node and index.js! 🙃');
 
@@ -6,13 +7,21 @@ const express = require('express');
 
 // Let's create a new App
 const app = express();
+nunjucks.configure({
+  autoescape: true,
+  express: app
+});
 
 // We want express to run on this port
 const port = 3000;
 
+// app.get('/', (request, response) => {
+//   console.log('Request: /');
+//   response.sendFile(__dirname + '/index.html');
+// });
+
 app.get('/', (request, response) => {
-  console.log('Request: /');
-  response.sendFile(__dirname + '/index.html');
+  response.render('./views/index.html.njk');
 });
 
 app.listen(port, () => {
